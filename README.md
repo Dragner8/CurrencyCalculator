@@ -2,7 +2,7 @@
 
 
 # To run 
-### Standalone
+### With meaven
 
 Run mysql on localhost:3306 <br>
 change database credentials in application.properties (default root/rootpw)
