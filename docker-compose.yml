@@ -1,0 +1,34 @@
+version: '3'
+services:
+  rest-app:
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+     - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/data_base?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      DATA_HOST: db-mysql
+      DATA_PORT: 3306
+
+    depends_on:
+      - db-mysql
+    command: bash -c "./wait-for-mysql.sh 2> /dev/null && java -jar /app/CurrencyCalculator-0.0.1-SNAPSHOT.jar"
+
+
+  db-mysql:
+    container_name: db-mysql
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+
+    ports:
+      - "3306:3306"
+
+    restart: always
+
+
