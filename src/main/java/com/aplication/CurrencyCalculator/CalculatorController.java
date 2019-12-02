@@ -37,9 +37,9 @@ public class CalculatorController {
         return new ResponseEntity<Collection<String>>(w, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/prices", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/rates", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public ResponseEntity<Map<String,Float>> prices(HttpServletRequest request) {
+    public ResponseEntity<Map<String,Float>> rates(HttpServletRequest request) {
         String url = String.valueOf((request.getRequestURL()));
         calculatorService.saveRequest(url);
 
@@ -52,8 +52,8 @@ public class CalculatorController {
     }
 
 
-    @RequestMapping( value="/api/calculate",  method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BigDecimal> calculate(HttpServletRequest request,@RequestParam String from,
+    @RequestMapping( value="/api/convert",  method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<BigDecimal> convert(HttpServletRequest request,@RequestParam String from,
                                                 @RequestParam String to, @RequestParam BigDecimal value ) {
         String url = String.valueOf((request.getRequestURL()));
         calculatorService.saveRequest(url+"?from="+from+"&to="+to+"&value="+value);
