@@ -20,13 +20,13 @@ docker-compose up
 # Usage
 list available currencies
 ```
-http://localhost:8080/api/list
+curl localhost:8080/api/list
 ```
 list currencies rates
 ```
-http://localhost:8080/api/prices
+curl localhost:8080/api/rates
 ```
-convert currency
+convert currency (parameters @from @to @value)
 ```
-http://localhost:8080/api/calculate?from=usd&to=eur&value=500
+curl localhost:8080/api/convert?from=usd&to=eur&value=500
 ```
