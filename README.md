@@ -5,7 +5,7 @@
 ### Standalone
 
 Run mysql on localhost:3306 <br>
-change database credentials in application.properies (default root/rootpw)
+change database credentials in application.properties (default root/rootpw)
 
 ```
 ./mvnw clean install
