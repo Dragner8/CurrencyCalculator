@@ -16,7 +16,7 @@ change database credentials in application.properties (default root/rootpw)
 ```
 docker-compose up
 ```
-meaven
+
 # Usage
 list available currencies
 ```
