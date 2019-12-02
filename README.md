@@ -10,7 +10,7 @@ change database credentials in application.properties (default root/rootpw)
 ```
 ./mvnw clean install
 ./mvnw spring-boot:run
-```meaven
+```
 
 ### With docker-compose
 ```
